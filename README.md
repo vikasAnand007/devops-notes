@@ -1,4 +1,8 @@
-### install node (using nvm)
+## Creating RSA ssh key
+
+    ssh-keygen -t rsa
+
+## install node (using nvm)
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     
@@ -18,7 +22,7 @@ check node and npm
     node -v
     npm -v
 
-### install pm2
+## install pm2
 
     npm install -g pm2
 check pm2
@@ -30,7 +34,7 @@ pm2 commands
     pm2 stop <id>
     pm2 delete <id>
     pm2 restart <id>
-### install nginx
+## install nginx
 
     sudo apt update
     sudo apt install -y nginx
@@ -92,6 +96,10 @@ Nginx configurations `sudo vi /etc/nginx/nginx.conf`
         }
     }
 
+## Git
+clone only single branch
 
+    git clone --branch <branch-name> --single-branch <repository-url>
 
  
+
