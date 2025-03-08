@@ -101,5 +101,48 @@ clone only single branch
 
     git clone --branch <branch-name> --single-branch <repository-url>
 
+
+# Install Docker
+Update the package list
+
+    sudo apt update
+Install prerequisite packages
+
+    sudo apt install -y ca-certificates curl gnupg
+Create a directory for storing the Docker GPG key
+
+    sudo install -m 0755 -d /etc/apt/keyrings
+Download and save the Docker GPG key
+
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.asc > /dev/null
+Set permissions for the key file
+
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+Add Docker’s repository to APT sources
+
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+Update package list again
+
+    sudo apt update
+Install Docker components
+
+    sudo apt install -y docker-ce docker-ce-cli containerd.io
+Enable Docker to start on boot
+
+    sudo systemctl enable docker
+Start Docker
+
+    sudo systemctl start docker
+Add your user to the Docker group
+
+    sudo usermod -aG docker $USER
+Apply group changes
+
+    newgrp docker
+Verify installation
+
+    docker images
+
  
 
